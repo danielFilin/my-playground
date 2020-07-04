@@ -1,0 +1,8 @@
+.place-list {
+    list-style: none;
+    padding: 0;
+    width: 90%;
+    display: flexbox;
+   
+    /* max-width: 40rem; */
+  }
