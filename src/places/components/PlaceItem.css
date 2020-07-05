@@ -89,4 +89,10 @@
     display: inline-flex;
   }
 
+  .place-item-wide {
+    margin: 1rem;
+    width: 65%;
+    display: inline-flex;
+  }
+
 }

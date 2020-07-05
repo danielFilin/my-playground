@@ -18,6 +18,7 @@ const PlaceDetails = props => {
 const { isLoading, sendRequest} = useHttpClient();
 const auth = useContext(AuthContext);
 const [loadedPlace, setLoadedPlace] = useState();
+const [ratePlace, setRatePlace] = useState(true);
 const placeId = useParams().id;
 const [showMap, setShowMap] = useState(false);
     useEffect(() => {
@@ -40,7 +41,6 @@ const [showMap, setShowMap] = useState(false);
 
     const changeHandler = async (event) => {
         try {
-            console.log(auth.userId);
             await sendRequest(`${process.env.REACT_APP_BACKEND_URL}/places/rate/${placeId}`, 'PATCH', JSON.stringify({
                 rating: event.target.value,
                 userId: auth.userId
@@ -49,9 +49,33 @@ const [showMap, setShowMap] = useState(false);
                     'Content-Type': 'application/json',
                     Authorization: 'Bearer ' + auth.token
                 });
+                setRatePlace(false);
         } catch (err) {
             console.log(err);
         }
+    }
+
+    let rate;
+    if (ratePlace) {
+        rate = (
+            <React.Fragment>
+                <p>Rate this place!</p>
+                <div className="rate">
+                    <input type="radio" id="star5" name="rate" value="5" onChange={changeHandler}/>
+                    <label htmlFor="star5" title="text">5 stars</label>
+                    <input type="radio" id="star4" name="rate" value="4" onChange={changeHandler}/>
+                    <label htmlFor="star4" title="text">4 stars</label>
+                    <input type="radio" id="star3" name="rate" value="3" onChange={changeHandler}/>
+                    <label htmlFor="star3" title="text">3 stars</label>
+                    <input type="radio" id="star2" name="rate" value="2" onChange={changeHandler}/>
+                    <label htmlFor="star2" title="text">2 stars</label>
+                    <input type="radio" id="star1" name="rate" value="1" onChange={changeHandler}/>
+                    <label htmlFor="star1" title="text">1 star</label>
+                </div> 
+            </React.Fragment>  
+            )
+    } else {
+        rate = <h5>Your vote has been counted</h5>
     }
 
     return ( 
@@ -76,23 +100,11 @@ const [showMap, setShowMap] = useState(false);
                         <h2 style={{'display': 'inline-block'}}>{loadedPlace.address}</h2>     
                         <Button float inverse onClick={openMapHandler}>VIEW ON MAP</Button>
                         <p>Description: {loadedPlace.description}</p>
-                         <p>Safety Level: {loadedPlace.safety}.</p>
-                         {loadedPlace.publicWC && <MdWc title='WC' className='icon'/> }
-                         {loadedPlace.fence && < GiSpikedFence title="Has Fence around it" className='icon'/> }
-                         {/* <p>Rate this place!</p>
-                         <div className="rate">
-                            <input type="radio" id="star5" name="rate" value="5" onChange={changeHandler}/>
-                            <label htmlFor="star5" title="text">5 stars</label>
-                            <input type="radio" id="star4" name="rate" value="4" onChange={changeHandler}/>
-                            <label htmlFor="star4" title="text">4 stars</label>
-                            <input type="radio" id="star3" name="rate" value="3" onChange={changeHandler}/>
-                            <label htmlFor="star3" title="text">3 stars</label>
-                            <input type="radio" id="star2" name="rate" value="2" onChange={changeHandler}/>
-                            <label htmlFor="star2" title="text">2 stars</label>
-                            <input type="radio" id="star1" name="rate" value="1" onChange={changeHandler}/>
-                            <label htmlFor="star1" title="text">1 star</label>
-                        </div> */}
-                    </div>
+                            <p>Safety Level: {loadedPlace.safety}.</p>
+                            {loadedPlace.publicWC && <MdWc title='WC' className='icon'/> }
+                            {loadedPlace.fence && < GiSpikedFence title="Has Fence around it" className='icon'/> }
+                            {rate}
+                    </div> 
                 </Card>
                   }
         </React.Fragment>

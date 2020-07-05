@@ -7,17 +7,11 @@ import {
 } from 'react-router-dom';
 
 import './places/components/FontawesomeIcons/FontAwesome'; 
-//import Users from './user/pages/Users';
-//import NewPlace from './places/pages/NewPlace';
-//import UserPlaces from './places/pages/UserPlaces';
 import MainNavigation from './shared/components/Navigation/MainHeader/MainNavigation';
-//import UpdatePlace from './places/pages/UpdatePlace';
-//import Auth from './user/pages/Auth';
 import { AuthContext } from './shared/context/auth-context';
 import { useAuth } from './shared/hooks/auth-hook';
 import AllPlaces from './places/pages/AllPlaces';
 import LoadingSpinner from './shared/components/UIElements/LoadingSpinner';
-//import PlacesDetails from './places/components/PlaceDetails';
 
 const Users = React.lazy(() => import('./user/pages/Users'));
 const Auth = React.lazy(() => import('./user/pages/Auth'));

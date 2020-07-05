@@ -18,7 +18,9 @@ const PlaceList = props => {
     return (
         <div className='place-list'>
             {props.items.map(place => (
-                <PlaceItem 
+                <PlaceItem
+                    buttons={props.buttons} 
+                    width={props.width}
                     to={place.id}
                     key={place.id} 
                     id={place.id} 

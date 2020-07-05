@@ -44,7 +44,7 @@ const AllPlaces = () => {
                  <Button to='/places/new'>Share Place</Button>
                 </Card>
               </div>)}
-           {!isLoading && loadedPlaces && <PlaceList items={loadedPlaces} onDeletePlace={placeDeletedHandler}/> }
+           {!isLoading && loadedPlaces && <PlaceList buttons={false} items={loadedPlaces} onDeletePlace={placeDeletedHandler}/> }
         </React.Fragment> 
     ) 
 };

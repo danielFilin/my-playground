@@ -152,7 +152,7 @@ const NewPlace = () => {
           validators={[]}
           onInput={inputHandler} /> */}
           <ImageUpload center id="image" onInput={inputHandler} errorText='Please provide an image'/>
-          <Button type='submit' disabled={formState.isValid}>ADD PLACE</Button>
+          <Button type='submit' disabled={!formState.isValid}>ADD PLACE</Button>
     </form>
     </React.Fragment>
   )
