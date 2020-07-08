@@ -4,9 +4,13 @@ import { Link } from 'react-router-dom';
 import './Button.css';
 
 const Button = props => {
-let float;
+  let margin;
+  let float;
   if (props.float){
     float = 'float';
+  }
+  if (props.className === 'margin') {
+    margin = 'margin';
   }
 
   if (props.href) {
@@ -34,7 +38,7 @@ let float;
   }
   return (
     <button
-      className={`${float} button button--${props.size || 'default'} ${props.inverse &&
+      className={`${float} ${margin} button button--${props.size || 'default'} ${props.inverse &&
         'button--inverse'} ${props.danger && 'button--danger'}`}
       type={props.type}
       onClick={props.onClick}

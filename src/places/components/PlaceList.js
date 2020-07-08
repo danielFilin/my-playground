@@ -35,6 +35,7 @@ const PlaceList = props => {
                     waterSurface={place.waterSurface} 
                     coordinates={place.location}
                     rating={place.avgStars}
+                    comments={place.comments}
                     onDelete={props.onDeletePlace}/>
                 )
             )} 

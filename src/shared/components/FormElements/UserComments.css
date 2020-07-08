@@ -1,0 +1,13 @@
+.comment-box {
+    border: 1px solid black;
+    margin: 2rem 1rem;
+    padding: 1rem;
+}
+
+.delete {
+    float: right;
+    font-weight: 800;
+    color: red;
+    font-size: 1.5rem;
+    cursor: pointer;
+}

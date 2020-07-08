@@ -11,6 +11,11 @@
   display: inline-block;
 }
 
+.margin {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
 .button:focus {
   outline: none;
 }

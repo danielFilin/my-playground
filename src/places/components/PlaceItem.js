@@ -72,6 +72,7 @@ const PlaceItem = props => {
     } else {
         itemClass = 'place-item';
     }
+    
     return (
         <React.Fragment>
             <ErrorModal error={error} onClear={clearError} />
