@@ -66,11 +66,11 @@ const UserComments = (props) => {
             }>
                 <p>Do you want to proceed and delete your place?</p>
             </Modal>
-          {loadedComments && loadedComments.length === 0 && <h3>No comments added yet</h3>}
+          {loadedComments && loadedComments.length === 0 && <h3 className='no-comments'>No comments added yet</h3>}
           {loadedComments && loadedComments.map(prop => (
           <div className='comment-box' key={prop.id}>
               <span>User name: {prop.userName}</span>
-              <span className='delete' id={prop.id} onClick={showDeleteWarningHandler}>X</span>
+              <span className='delete-sign' id={prop.id} onClick={showDeleteWarningHandler}>X</span>
               <p>content: {prop.comment}</p>
           </div>
     ))}

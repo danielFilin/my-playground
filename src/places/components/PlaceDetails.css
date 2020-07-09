@@ -7,14 +7,33 @@ h2 {
 }
 .item-details{
     text-align: inherit;
+    width: 45%;
+    float : left;
 }
+
+.image-form{
+    width: 50%;
+    float: left;
+    display: inline-block;
+}
+
+.place-form {
+    height: 3rem;
+    display: inline-table;
+    margin: 3rem;
+}
+
+#comment {
+    width: 60%;
+}
+
 .icon{
     font-size: 2rem;
     color: black;
 }
 
 .comment-input {
-    padding: 3rem;
+    padding: 2rem;
     width: 100%;
 }
 

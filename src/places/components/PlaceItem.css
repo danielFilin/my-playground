@@ -5,6 +5,7 @@
   .place-item__content {
     width: 100%;
     padding: 0;
+    margin-top: -1rem;
   }
   
   .place-item__info {
