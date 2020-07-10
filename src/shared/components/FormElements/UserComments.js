@@ -5,11 +5,12 @@ import { AuthContext } from '../../context/auth-context';
 import { useHttpClient } from '../../hooks/http-hook';
 import Modal from '../UIElements/Modal';
 import Button from './Button';
+import LoadingSpinner from '../UIElements/LoadingSpinner';
 
 
 const UserComments = (props) => {
     const auth = useContext(AuthContext);
-    const {sendRequest} = useHttpClient();
+    const {isLoading, sendRequest} = useHttpClient();
     const [loadedComments, setLoadedComment] = useState();
     const [commentId, setCommentId] = useState();
     const [showConfirmModal, setShowConfirmModal] = useState(false);
@@ -66,6 +67,11 @@ const UserComments = (props) => {
             }>
                 <p>Do you want to proceed and delete your place?</p>
             </Modal>
+            {isLoading && (
+                        <div className='center'>
+                            <LoadingSpinner />
+                        </div>
+                         )}
           {loadedComments && loadedComments.length === 0 && <h3 className='no-comments'>No comments added yet</h3>}
           {loadedComments && loadedComments.map(prop => (
           <div className='comment-box' key={prop.id}>

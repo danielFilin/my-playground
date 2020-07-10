@@ -135,7 +135,7 @@ const NewPlace = () => {
         <Input
           id='safety' 
           element='select' 
-          label='Safety' 
+          label='Safety level:' 
           validators={[VALIDATOR_REQUIRE()]}
           onInput={inputHandler}/>
         <Input

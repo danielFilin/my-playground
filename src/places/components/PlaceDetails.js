@@ -12,7 +12,7 @@ import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 import { useHttpClient } from '../../shared/hooks/http-hook';
 import './PlaceDetails.css';
 import { MdWc } from 'react-icons/md';
-import { GiSpikedFence } from 'react-icons/all'
+import { GiSpikedFence, FaPizzaSlice, FaWater } from 'react-icons/all'
 import Input from '../../shared/components/FormElements/Input';
 import { useForm } from '../../shared/hooks/form-hook';
 import UserComments from '../../shared/components/FormElements/UserComments';
@@ -103,6 +103,7 @@ const [showMap, setShowMap] = useState(false);
     })
 
     const reviewSumbitHandler = async (event) => {
+     
         event.preventDefault();
         const comments = {
             comment: formState.inputs.comment.value,
@@ -115,6 +116,7 @@ const [showMap, setShowMap] = useState(false);
                 Authorization: 'Bearer ' + auth.token
             });
             fetchPlaces();
+
     };
 
     const [imageState, uploadHandler] = useForm({
@@ -158,7 +160,13 @@ const [showMap, setShowMap] = useState(false);
     return ( 
         <React.Fragment>
             {loadedPlace && (
+                     
                 <Card className='place-item__content'> 
+                  {isLoading && (
+                        <div className='center'>
+                            <LoadingSpinner />
+                        </div>
+                         )}
                     <Modal 
                         show={showMap} 
                         onCancel={closeMapHandler} 
@@ -182,6 +190,8 @@ const [showMap, setShowMap] = useState(false);
                                     <p>Safety Level: {loadedPlace.safety}.</p>
                                     {loadedPlace.publicWC && <MdWc title='WC' className='icon'/> }
                                     {loadedPlace.fence && < GiSpikedFence title="Has Fence around it" className='icon'/> }
+                                    {loadedPlace.foodDrink && <FaPizzaSlice className='icon'/> }
+                                    {loadedPlace.waterSurface && <FaWater className='icon'/> }
                                     {rate}
                             </div>
                             <div className='image-form'>

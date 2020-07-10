@@ -24,7 +24,7 @@ h2 {
 }
 
 #comment {
-    width: 60%;
+    width: 100%;
 }
 
 .icon{
@@ -34,7 +34,7 @@ h2 {
 
 .comment-input {
     padding: 2rem;
-    width: 100%;
+    width: 90%;
 }
 
 .mapView{
