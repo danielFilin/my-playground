@@ -1,6 +1,12 @@
 .place-list {
-    list-style: none;
-    padding: 0;
-    width: 100%;
-    display: flexbox;
+    
   }
+
+
+  @media (min-width: 870px) {
+  .place-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+}

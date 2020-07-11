@@ -6,6 +6,7 @@ import PlaceItem from './PlaceItem';
 import './PlaceList.css'
 
 const PlaceList = props => {
+
     if (props.items.length === 0) {
         return <div className='place-list center'>
             <Card>
@@ -16,7 +17,7 @@ const PlaceList = props => {
     }
 
     return (
-        <div className='place-list'>
+        <div>
             {props.items.map(place => (
                 <PlaceItem
                     buttons={props.buttons} 

@@ -79,21 +79,26 @@
   vertical-align: top;
 }
 
-@media (min-width: 768px) {
+.place-item-wide {
+  margin: 1rem;
+  width: 65%;
+  margin: auto;
+}
+
+@media (min-width: 870px) {
   .place-item__image {
     height: 20rem;
   } 
 
   .place-item {
     margin: 1rem;
-    width: 40%;
+    width: 45%;
     display: inline-flex;
   }
 
   .place-item-wide {
-    margin: 1rem;
+    margin: auto;
     width: 65%;
-    display: inline-flex;
   }
 
 }
