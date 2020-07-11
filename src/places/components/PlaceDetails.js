@@ -17,6 +17,7 @@ import Input from '../../shared/components/FormElements/Input';
 import { useForm } from '../../shared/hooks/form-hook';
 import UserComments from '../../shared/components/FormElements/UserComments';
 import ImageUpload from '../../shared/components/FormElements/ImageUpload';
+import ImageContainer from '../../shared/components/UIElements/ImageContainer';
 
 
 const PlaceDetails = props => {
@@ -27,6 +28,7 @@ const [showComments, setShowComments] = useState(false);
 const [ratePlace, setRatePlace] = useState(true);
 const placeId = useParams().id;
 const [showMap, setShowMap] = useState(false);
+const [showImages, setShowImages] = useState(false);
     useEffect(() => {
         fetchPlaces();
       }, [sendRequest, setLoadedPlace, placeId]);
@@ -55,6 +57,10 @@ const [showMap, setShowMap] = useState(false);
     const openMapHandler = () => setShowMap(true);
 
     const closeMapHandler = () => setShowMap(false);
+
+    const openImageHandler = () => setShowImages(true);
+
+    const closeImageHandler = () => setShowImages(false);
 
     const onRatePlace = async (event) => {
         try {
@@ -177,10 +183,18 @@ const [showMap, setShowMap] = useState(false);
                         <div className='map-container'>
                             <Map center={loadedPlace.location} zoom={16}/>
                         </div> 
-                    </Modal> 
+                    </Modal>
+                    <ImageContainer 
+                        show={showImages} 
+                        onCancel={closeImageHandler} 
+                        header={loadedPlace.address}
+                        images={loadedPlace.image}
+                        contentClass='place-item__modal-content'
+                        footerClass='place-item__modal-actions'>
+                    </ImageContainer> 
                         {isLoading && <LoadingSpinner asOverlay/>}
                         <div className='place-item__image'>
-                            <img id='image' src={`${process.env.REACT_APP_ASSET_URL}/${loadedPlace.image[0]}`} alt={loadedPlace.title}/>
+                            <img id='image' src={`${process.env.REACT_APP_ASSET_URL}/${loadedPlace.image[0]}`} alt={loadedPlace.title} onClick={openImageHandler}/>
                         </div>
                         <div>
                             <div className='place-item__info item-details'>

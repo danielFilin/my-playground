@@ -4,6 +4,7 @@ h2 {
 
 #image {
     width: inherit;
+    cursor: pointer;
 }
 .item-details{
     text-align: inherit;
