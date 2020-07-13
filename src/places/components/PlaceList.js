@@ -18,6 +18,7 @@ const PlaceList = props => {
 
     return (
         <div>
+               <h1 style={{color: 'yellow', border: '2px solid red', margin: '2rem'}}>Current Heroku deployment deletes all images if the app is inactive for 30 mintues</h1>
             {props.items.map(place => (
                 <PlaceItem
                     buttons={props.buttons} 
